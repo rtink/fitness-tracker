@@ -12,7 +12,7 @@ export class TrainingComponent implements OnInit {
   ongoingTraining = false;
   exerciseSubscription: Subscription;
 
-  constructor(private trainingService: TrainingService) { }
+  constructor(private trainingService: TrainingService) {}
 
   ngOnInit() {
     this.exerciseSubscription = this.trainingService.exerciseChanged.subscribe(
@@ -22,8 +22,7 @@ export class TrainingComponent implements OnInit {
         } else {
           this.ongoingTraining = false;
         }
-        
-    });
+      }
+    );
   }
-
 }

@@ -3,7 +3,8 @@ a {
   color: white;
 }
 
-a:hover, 
+a:hover,
 a:active {
   color: lightgray;
 }
+
