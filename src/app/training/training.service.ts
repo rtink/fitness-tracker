@@ -24,6 +24,7 @@ constructor(private db: AngularFirestore, private uiService: UIService) {}
       .collection('availableExercises')
       .snapshotChanges()
       .map(docArray => {
+        // throw(new Error());
         return docArray.map(doc => {
           return {
             id: doc.payload.doc.id,
@@ -37,6 +38,11 @@ constructor(private db: AngularFirestore, private uiService: UIService) {}
         this.uiService.loadingStateChanged.next(false);
         this.availableExercises = exercises;
         this.exercisesChanged.next([...this.availableExercises]);
+      }, error => {
+        this.uiService.loadingStateChanged.next(false);
+        this.uiService.showSnackbar(
+          'Loading Exercises failed, please try again later', null, 3000);
+          this.exercisesChanged.next(null);
       }));
   }
 
