@@ -24,7 +24,7 @@ import { reducers } from './app.reducer';
     AppComponent,
     WelcomeComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
   ],
   imports: [
 

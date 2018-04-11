@@ -15,8 +15,11 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <mat-checkbox ngModel name="agree" required color="accent">Agree to Terms and Conditions.</mat-checkbox>
-    <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="accent" [disabled]="f.invalid">Sign Up</button>
+    <mat-checkbox ngModel name="agree" required color="accent">
+    <span matTooltip="No terms at this time. Click checkbox" #tooltip="matTooltip">
+        Agree to Terms and Conditions.
+    </span></mat-checkbox>
+    <button class="subButton" *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="accent" [disabled]="f.invalid">Sign Up</button>
     <mat-spinner *ngIf="isLoading$ | async" color="accent"></mat-spinner>
   </form>
 </section>
